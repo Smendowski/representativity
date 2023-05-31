@@ -25,17 +25,26 @@ z poniższym przykładem.
 ```shell
   docker build -t representativeness-service .
   docker run --rm -p 9000:8000 representativeness-service
-  
+
   [...]
   INFO:     Started server process [1]
   INFO:     Waiting for application startup.
   INFO:     Application startup complete.
   INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+  
+  
+  Alternatywnie, pobranie obrazu z DockerHub:
+  docker pull smendowski/representativeness-service:latest
+  docker run --rm -p 9000:8000 smendowski/representativeness-service
 ```
 4. Zbudowanie obrazu i uruchomienie testów jednostkowych
 ```shell
   docker build -t representativeness-service-tests  --target tester .
   docker run --rm representativeness-service-tests pytest
+  
+  Alternatywnie, pobranie obrazu z DockerHub:
+  docker pull smendowski/representativeness-service-tests:latest
+  docker run --rm smendowski/representativeness-service-tests pytest
 ```
 
 ## 3. Scenariusze eksperymentalne
